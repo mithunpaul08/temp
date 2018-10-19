@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f2d224e7-a10b-4414-bc53-de0a26923fe4" name="Default Changelist" comment="" />
+    <list default="true" id="f2d224e7-a10b-4414-bc53-de0a26923fe4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/collapser.py" beforeDir="false" afterPath="$PROJECT_DIR$/collapser.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,13 +34,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="8" />
-          <entry key="py" value="1739" />
+          <entry key="py" value="1743" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="8" />
-          <entry key="Python" value="1739" />
+          <entry key="Python" value="1743" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -49,12 +51,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/collapser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="24" column="57" selection-start-line="24" selection-start-column="57" selection-end-line="24" selection-end-column="57" />
+            <state relative-caret-position="94">
+              <caret line="119" column="47" selection-start-line="119" selection-start-column="47" selection-end-line="119" selection-end-column="47" />
               <folding>
-                <marker date="1539919980655" expanded="true" signature="148:3664" ph="..." />
-                <marker date="1539919980655" expanded="true" signature="2006:2007" ph="..." />
-                <marker date="1539919980655" expanded="true" signature="2097:3664" ph="..." />
+                <marker date="1539920236255" expanded="true" signature="148:3664" ph="..." />
+                <marker date="1539920236255" expanded="true" signature="2006:2007" ph="..." />
+                <marker date="1539920236255" expanded="true" signature="2097:3664" ph="..." />
               </folding>
             </state>
           </provider>
@@ -75,6 +77,9 @@
       <find>full_name</find>
     </findStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -88,6 +93,7 @@
     <option name="width" value="1602" />
     <option name="height" value="962" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -170,7 +176,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32934132" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4009604" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -201,23 +207,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/collapser.py</url>
-          <line>88</line>
-          <option name="timeStamp" value="42" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/collapser.py</url>
           <line>13</line>
           <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/collapser.py</url>
-          <line>32</line>
-          <option name="timeStamp" value="44" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/collapser.py</url>
-          <line>33</line>
-          <option name="timeStamp" value="45" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -235,12 +226,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/collapser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="24" column="57" selection-start-line="24" selection-start-column="57" selection-end-line="24" selection-end-column="57" />
+        <state relative-caret-position="94">
+          <caret line="119" column="47" selection-start-line="119" selection-start-column="47" selection-end-line="119" selection-end-column="47" />
           <folding>
-            <marker date="1539919980655" expanded="true" signature="148:3664" ph="..." />
-            <marker date="1539919980655" expanded="true" signature="2006:2007" ph="..." />
-            <marker date="1539919980655" expanded="true" signature="2097:3664" ph="..." />
+            <marker date="1539920236255" expanded="true" signature="148:3664" ph="..." />
+            <marker date="1539920236255" expanded="true" signature="2006:2007" ph="..." />
+            <marker date="1539920236255" expanded="true" signature="2097:3664" ph="..." />
           </folding>
         </state>
       </provider>

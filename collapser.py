@@ -117,7 +117,7 @@ if __name__=="__main__":
 
     evidence_words_list =  ["He", "then", "played", "Detective", "John", "Amsterdam", "in", "the", "short-lived", "Fox",
                             "television", "series", "New", "Amsterdam", "-LRB-", "2008", "-RRB-", ",", "as", "well", "as", "appearing",
-                            "as", "John", "Amsterdam", "in", "the", "2009", "Fox", "television", "film", "Virtuality", ",", "originally", "intended", "as", "a", "pilot", "."]
+                            "as", "John", "Pike", "in", "the", "2009", "Fox", "television", "film", "Virtuality", ",", "originally", "intended", "as", "a", "pilot", "."]
     evidence_ner_list = ["O", "O", "O", "O", "PERSON", "PERSON", "O", "O", "O", "O", "O", "O", "O", "LOCATION", "O", "DATE", "O", "O", "O", "O", "O", "O", "O", "PERSON", "PERSON", "O", "O", "DATE", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
 
 
