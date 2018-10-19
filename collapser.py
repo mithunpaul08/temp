@@ -3,7 +3,7 @@ import sys
 
 
 
-def get_new_name(prev, unique_new_ners, curr_ner, dict_tokenner_newner, curr_word, new_sent, ev_claim, full_name, unique_new_tokens):
+def get_new_name(prev, unique_new_ners, curr_ner, dict_tokenner_newner, curr_word, new_sent, ev_claim, full_name, unique_new_tokens,dict_newner_token):
     prev_ner_tag=prev[0]
     new_nertag_i=""
     full_name_c=" ".join(full_name)
@@ -35,6 +35,8 @@ def get_new_name(prev, unique_new_ners, curr_ner, dict_tokenner_newner, curr_wor
     else:
         dict_tokenner_newner[full_name_c, prev[0]] = new_nertag_i
 
+    dict_newner_token[new_nertag_i]=full_name_c
+
     new_sent.append(new_nertag_i)
 
 
@@ -47,33 +49,57 @@ def get_new_name(prev, unique_new_ners, curr_ner, dict_tokenner_newner, curr_wor
 
 
 
-    return prev, dict_tokenner_newner, new_sent, full_name,unique_new_ners,unique_new_tokens
+    return prev, dict_tokenner_newner, new_sent, full_name,unique_new_ners,unique_new_tokens,dict_newner_token
 
-# def check_exists_in_claim(full_name,dict_tokenner_newner):
-#     if (ev_claim == "e"):
-#         new_name_evidence = check_exists_in_claim(full_name, dict_tokenner_newner)
-#         #new_sent.append(new_name_evidence)
-#
-#
-#     else:
-#     name_evidence_split = set(full_name)
-#     print(" value in name_evidence_split is")
-#     print(name_evidence_split)
-#
-#     for tup in dict_tokenner_newner.keys():
-#
-#         name_cl=tup[0]
-#         name_cl_split=name_cl.split(" ")
-#         print("first value in tuples is")
-#         print(name_cl_split)
-#         if(name_evidence_split.intersection(name_cl_split)):
-#             print("name exists")
-#             val_claim=dict_tokenner_newner[tup]
-#             return val_claim;
+def check_exists_in_claim(new_sent_after_collapse, dict_tokenner_newner_evidence ,dict_newner_token,dict_tokenner_newner_claims):
+
+    combined_sent=[]
+
+
+    for word in new_sent_after_collapse:
+        if word in dict_newner_token.keys():
+            token=dict_newner_token[word]
+
+            token_split=set(token.split(" "))
+            #print(token_split)
+
+            found_intersection=False
+            for tup in dict_tokenner_newner_claims.keys():
+                name_cl = tup[0]
+                name_cl_split = name_cl.split(" ")
+                #print("first value in tuples is")
+                #print(name_cl_split)
+
+                if (token_split.intersection(name_cl_split)):
+                    #print("name exists")
+                    val_claim = dict_tokenner_newner_claims[tup]
+                    combined_sent.append(val_claim)
+                    found_intersection=True
+            if not (found_intersection):
+                combined_sent.append(word)
+                new_ner=""
+                for k,v in dict_tokenner_newner_evidence.items():
+                    #print(k,v)
+                    if(word==v):
+                        new_ner=k[1]
+                dict_tokenner_newner_claims[token, new_ner] = word
+
+
+
+        else:
+            combined_sent.append(word)
+
+
+    print(combined_sent)
+    sys.exit(1)
+
+
+
 
 
 
 def collapse_both(claims_words_list,claims_ner_list,ev_claim):
+    dict_newner_token={}
     dict_tokenner_newner={}
     unique_new_tokens = {}
     unique_new_ners = {}
@@ -91,9 +117,10 @@ def collapse_both(claims_words_list,claims_ner_list,ev_claim):
             if (len(prev) == 0):
                 new_sent.append(curr_word)
             else:
-                prev, dict_tokenner_newner, new_sent, full_name,unique_new_ners,unique_new_tokens = get_new_name(prev, unique_new_ners, curr_ner,
+
+                prev, dict_tokenner_newner, new_sent, full_name,unique_new_ners,unique_new_tokens,dict_newner_token = get_new_name(prev, unique_new_ners, curr_ner,
                                                                                dict_tokenner_newner, curr_word,
-                                                                               new_sent, ev_claim, full_name,unique_new_tokens)
+                                                                               new_sent, ev_claim, full_name,unique_new_tokens,dict_newner_token)
                 new_sent.append(curr_word)
         else:
             if (len(prev) == 0):
@@ -104,38 +131,45 @@ def collapse_both(claims_words_list,claims_ner_list,ev_claim):
                     prev.append(curr_ner)
                     full_name.append(curr_word)
                 else:
-                    prev, dict_tokenner_newner, new_sent, full_name,unique_new_ners,unique_new_tokens = get_new_name(prev, unique_new_ners, curr_ner,
+                    prev, dict_tokenner_newner, new_sent, full_name,unique_new_ners,unique_new_tokens,dict_newner_token = get_new_name(
+                        prev, unique_new_ners, curr_ner,
                                                                                    dict_tokenner_newner, curr_word,
-                                                                           new_sent, ev_claim, full_name)
+                                                                           new_sent, ev_claim, full_name,unique_new_tokens,dict_newner_token)
 
-    return new_sent, dict_tokenner_newner
+    return new_sent, dict_tokenner_newner,dict_newner_token
 
 
 if __name__=="__main__":
-    claims_words_list = ["John", "Amsterdam", "worked", "with", "the", "Fox", "Broadcasting", "Company", "."]
-    claims_ner_list = ["PERSON", "PERSON", "O", "O", "O", "ORGANIZATION", "ORGANIZATION", "ORGANIZATION", "O"]
+    # claims_words_list = ["Nikolaj", "Coster-Waldau", "worked", "with", "the", "Fox", "Broadcasting", "Company", "."]
+    # claims_ner_list = ["PERSON", "PERSON", "O", "O", "O", "ORGANIZATION", "ORGANIZATION", "ORGANIZATION", "O"]
+    # evidence_words_list =  ["He", "then", "played", "Detective", "John", "Amsterdam", "in", "the", "short-lived", "Fox", "television", "series", "New", "Amsterdam", "-LRB-", "2008", "-RRB-", ",", "as", "well", "as", "appearing", "as", "Frank", "Pike", "in", "the", "2009", "Fox", "television", "film", "Virtuality", ",", "originally", "intended", "as", "a", "pilot", "."]
+    # evidence_ner_list = ["O", "O", "O", "O", "PERSON", "PERSON", "O", "O", "O", "O", "O", "O", "O", "LOCATION", "O", "DATE", "O", "O", "O", "O", "O", "O", "O", "PERSON", "PERSON", "O", "O", "DATE", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
 
-    evidence_words_list =  ["He", "then", "played", "Detective", "John", "Amsterdam", "in", "the", "short-lived", "Fox",
-                            "television", "series", "New", "Amsterdam", "-LRB-", "2008", "-RRB-", ",", "as", "well", "as", "appearing",
-                            "as", "John", "Pike", "in", "the", "2009", "Fox", "television", "film", "Virtuality", ",", "originally", "intended", "as", "a", "pilot", "."]
-    evidence_ner_list = ["O", "O", "O", "O", "PERSON", "PERSON", "O", "O", "O", "O", "O", "O", "O", "LOCATION", "O", "DATE", "O", "O", "O", "O", "O", "O", "O", "PERSON", "PERSON", "O", "O", "DATE", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
-
+    claims_words_list = ["Roman", "Atwood", "is", "a", "content", "creator", "."]
+    claims_ner_list = ["O", "PERSON", "O", "O", "O", "O", "O"]
+    evidence_words_list = ["He", "also", "has", "another", "YouTube", "channel", "called", "``", "RomanAtwood", "''", ",", "where", "he", "posts", "pranks", "."]
+    evidence_ner_list = ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
 
     ev_claim = "c"
 
-    new_sent_after_collapse, dict_tokenner_newner_claims=collapse_both(claims_words_list,claims_ner_list,ev_claim )
+    new_sent_after_collapse, dict_tokenner_newner_claims,dict_newner_token=collapse_both(claims_words_list,claims_ner_list,ev_claim )
     # print("new_sent_after_collapse="+str(new_sent))
-    #print("dict_tokenner_newner is:" + str(dict_tokenner_newner))
+    #print("dict_newner_token is:" + str(dict_newner_token))
+
     print(claims_words_list)
-    print("new_sent_after_collapse")
-    print(new_sent_after_collapse)
+    #print("new_sent_after_collapse")
+    #print(new_sent_after_collapse)
 
 
     ev_claim = "e"
-    new_sent_after_collapse, dict_tokenner_newner_evidence = collapse_both(evidence_words_list, evidence_ner_list, ev_claim )
-    print("dict_tokenner_newner is:" + str(dict_tokenner_newner_evidence))
-    # print(evidence_words_list)
-    print("new_sent_after_collapse")
-    print(new_sent_after_collapse)
-    sys.exit(1)
+    new_sent_after_collapse, dict_tokenner_newner_evidence ,dict_newner_token= collapse_both(evidence_words_list, evidence_ner_list, ev_claim )
+    #print("dict_newner_token is:" + str(dict_newner_token))
+
+
+    #print("new_sent_after_collapse")
+    #print(new_sent_after_collapse)
+    print(evidence_words_list)
+    check_exists_in_claim(new_sent_after_collapse, dict_tokenner_newner_evidence, dict_newner_token,dict_tokenner_newner_claims)
+
+
     print("done")

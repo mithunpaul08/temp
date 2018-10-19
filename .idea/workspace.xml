@@ -34,13 +34,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="8" />
-          <entry key="py" value="1743" />
+          <entry key="py" value="2187" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="8" />
-          <entry key="Python" value="1743" />
+          <entry key="Python" value="2187" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -51,12 +51,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/collapser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="94">
-              <caret line="119" column="47" selection-start-line="119" selection-start-column="47" selection-end-line="119" selection-end-column="47" />
+            <state relative-caret-position="348">
+              <caret line="150" column="104" selection-start-line="150" selection-start-column="104" selection-end-line="150" selection-end-column="104" />
               <folding>
-                <marker date="1539920236255" expanded="true" signature="148:3664" ph="..." />
-                <marker date="1539920236255" expanded="true" signature="2006:2007" ph="..." />
-                <marker date="1539920236255" expanded="true" signature="2097:3664" ph="..." />
+                <marker date="1539923402414" expanded="true" signature="166:4520" ph="..." />
+                <marker date="1539923402414" expanded="true" signature="2703:2704" ph="..." />
+                <marker date="1539923402414" expanded="true" signature="2819:4520" ph="..." />
               </folding>
             </state>
           </provider>
@@ -175,8 +175,8 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32934132" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4009604" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32893157" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4009604" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -197,18 +197,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/collapser.py</url>
-          <line>134</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/collapser.py</url>
-          <line>70</line>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/collapser.py</url>
           <line>13</line>
           <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/collapser.py</url>
+          <line>171</line>
+          <option name="timeStamp" value="47" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -226,12 +221,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/collapser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="119" column="47" selection-start-line="119" selection-start-column="47" selection-end-line="119" selection-end-column="47" />
+        <state relative-caret-position="348">
+          <caret line="150" column="104" selection-start-line="150" selection-start-column="104" selection-end-line="150" selection-end-column="104" />
           <folding>
-            <marker date="1539920236255" expanded="true" signature="148:3664" ph="..." />
-            <marker date="1539920236255" expanded="true" signature="2006:2007" ph="..." />
-            <marker date="1539920236255" expanded="true" signature="2097:3664" ph="..." />
+            <marker date="1539923402414" expanded="true" signature="166:4520" ph="..." />
+            <marker date="1539923402414" expanded="true" signature="2703:2704" ph="..." />
+            <marker date="1539923402414" expanded="true" signature="2819:4520" ph="..." />
           </folding>
         </state>
       </provider>
