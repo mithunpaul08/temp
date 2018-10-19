@@ -140,15 +140,22 @@ def collapse_both(claims_words_list,claims_ner_list,ev_claim):
 
 
 if __name__=="__main__":
-    # claims_words_list = ["Nikolaj", "Coster-Waldau", "worked", "with", "the", "Fox", "Broadcasting", "Company", "."]
-    # claims_ner_list = ["PERSON", "PERSON", "O", "O", "O", "ORGANIZATION", "ORGANIZATION", "ORGANIZATION", "O"]
-    # evidence_words_list =  ["He", "then", "played", "Detective", "John", "Amsterdam", "in", "the", "short-lived", "Fox", "television", "series", "New", "Amsterdam", "-LRB-", "2008", "-RRB-", ",", "as", "well", "as", "appearing", "as", "Frank", "Pike", "in", "the", "2009", "Fox", "television", "film", "Virtuality", ",", "originally", "intended", "as", "a", "pilot", "."]
-    # evidence_ner_list = ["O", "O", "O", "O", "PERSON", "PERSON", "O", "O", "O", "O", "O", "O", "O", "LOCATION", "O", "DATE", "O", "O", "O", "O", "O", "O", "O", "PERSON", "PERSON", "O", "O", "DATE", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
+    claims_words_list = ["Nikolaj", "Coster-Waldau", "worked", "with", "the", "Fox", "Broadcasting", "Company", "."]
+    claims_ner_list = ["PERSON", "PERSON", "O", "O", "O", "ORGANIZATION", "ORGANIZATION", "ORGANIZATION", "O"]
+    evidence_words_list =  ["He", "then", "played", "Detective", "John", "Amsterdam", "in", "the", "short-lived", "Fox", "television", "series", "New", "Amsterdam", "-LRB-", "2008", "-RRB-", ",", "as", "well", "as", "appearing", "as", "John", "Pike", "in", "the", "2009", "Fox", "television", "film", "Virtuality", ",", "originally", "intended", "as", "a", "pilot", "."]
+    evidence_ner_list = ["O", "O", "O", "O", "PERSON", "PERSON", "O", "O", "O", "O", "O", "O", "O", "LOCATION", "O", "DATE", "O", "O", "O", "O", "O", "O", "O", "PERSON", "PERSON", "O", "O", "DATE", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
 
-    claims_words_list = ["Roman", "Atwood", "is", "a", "content", "creator", "."]
-    claims_ner_list = ["O", "PERSON", "O", "O", "O", "O", "O"]
-    evidence_words_list = ["He", "also", "has", "another", "YouTube", "channel", "called", "``", "RomanAtwood", "''", ",", "where", "he", "posts", "pranks", "."]
-    evidence_ner_list = ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
+    # claims_words_list = ["Roman", "Atwood", "is", "a", "content", "creator", "."]
+    # claims_ner_list = ["O", "PERSON", "O", "O", "O", "O", "O"]
+    # evidence_words_list = ["He", "also", "has", "another", "YouTube", "channel", "called", "``", "RomanAtwood", "''", ",", "where", "he", "posts", "pranks", "."]
+    # evidence_ner_list = ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
+
+    # claims_words_list =     ["The", "Boston", "Celtics", "play", "their", "home", "games", "at", "TD", "Garden", "."]
+    # claims_ner_list = ["O", "ORGANIZATION", "ORGANIZATION", "O", "O", "O", "O", "O", "LOCATION", "LOCATION", "O"]
+    # evidence_words_list = ["The", "Celtics", "play", "their", "home", "games", "at", "the", "TD", "Garden", ",", "which", "they", "share", "with", "the", "National", "Hockey", "League", "-LRB-", "NHL", "-RRB-", "'s", "Boston", "Bruins", "."]
+    # evidence_ner_list = ["O", "ORGANIZATION", "O", "O", "O", "O", "O", "O", "LOCATION", "LOCATION", "O", "O", "O", "O", "O", "O", "ORGANIZATION", "ORGANIZATION", "ORGANIZATION", "O", "ORGANIZATION", "O", "O", "ORGANIZATION", "ORGANIZATION", "O"]
+
+
 
     ev_claim = "c"
 
