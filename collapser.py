@@ -70,12 +70,14 @@ def check_exists_in_claim(new_ev_sent_after_collapse, dict_tokenner_newner_evide
             for tup in dict_tokenner_newner_claims.keys():
                 name_cl = tup[0]
                 ner_cl=tup[1]
-                name_cl_split = name_cl.split(" ")
-                #print("first value in tuples is")
-                #print(name_cl_split)
+                name_cl_split = set(name_cl.split(" "))
+                # print("first value in tuples is")
+                # print(type(token_split))
+                # print(type(name_cl_split))
+                #
 
                 #if (token_split.intersection(name_cl_split)):
-                if (token_split.issubset(name_cl_split)):
+                if (token_split.issubset(name_cl_split) or name_cl_split.issubset(token_split)):
                     #print("name exists")
 
 
@@ -168,17 +170,11 @@ def collapse_both(claims_words_list,claims_ner_list,ev_claim):
 if __name__=="__main__":
 
 
-    claims_ner_list = ["PERSON", "PERSON", "O", "O", "O", "ORGANIZATION", "ORGANIZATION", "ORGANIZATION", "O"]
+    claims_ner_list = ['ORGANIZATION', 'ORGANIZATION', 'O', 'O', 'O', 'O', 'O', 'O', 'O']
+    claims_words_list = ['Fox', '2000', 'Pictures', 'released', 'the', 'film', 'Soul', 'Food', '.']
 
-    claims_words_list = ["John", "Amsterdam", "worked", "with", "the", "Fox", "Broadcasting", "Company", "."]
-    evidence_words_list = ["He", "then", "played", "Detective", "John", "Amsterdam", "in", "the", "short-lived", "Fox",
-                           "television", "series", "New", "Amsterdam", "-LRB-", "2008", "-RRB-", ",", "as", "well",
-                           "as", "appearing",
-                           "as", "John", "Pike", "in", "the", "2009", "Fox", "television", "film", "Virtuality", ",",
-                           "originally", "intended", "as", "a", "pilot", "."]
-
-
-    evidence_ner_list = ["O", "O", "O", "O", "PERSON", "PERSON", "O", "O", "O", "O", "O", "O", "O", "LOCATION", "O", "DATE", "O", "O", "O", "O", "O", "O", "O", "PERSON", "PERSON", "O", "O", "DATE", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
+    evidence_words_list = ['Soul', 'Food', 'is', 'a', '1997', 'American', 'comedy-drama', 'film', 'produced', 'by', 'Kenneth', '``', 'Babyface', "''", 'Edmonds', ',', 'Tracey', 'Edmonds', 'and', 'Robert', 'Teitel', 'and', 'released', 'by', 'Fox', '2000', '.']
+    evidence_ner_list = ['O', 'O', 'O', 'O', 'DATE', 'MISC', 'O', 'O', 'O', 'O', 'PERSON', 'O', 'O', 'O', 'PERSON', 'O', 'PERSON', 'PERSON', 'O', 'PERSON', 'PERSON', 'O', 'O', 'O', 'ORGANIZATION', 'ORGANIZATION', 'O']
 
     # claims_words_list = ["Roman", "Atwood", "is", "a", "content", "creator", "."]
     # claims_ner_list = ["O", "PERSON", "O", "O", "O", "O", "O"]
